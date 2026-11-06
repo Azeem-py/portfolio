@@ -28,7 +28,9 @@ import {
   Database,
   CreditCard,
   Zap,
-  Sparkles
+  Sparkles,
+  Phone,
+  MapPin
 } from 'lucide-react';
 
 // --- Configuration & Resume Data ---
@@ -38,14 +40,17 @@ const CONFIG = {
   role: "BACKEND & DISTRIBUTED SYSTEMS ENGINEER",
   subRole: "Node.js · TypeScript · NestJS · PostgreSQL",
   email: "bljazeem@gmail.com",
-  phone: "+234 909 502 1208",
+  phone: "+234 703 348 6488",
+  phoneRaw: "+2347033486488",
   location: "Nigeria · Remote · GMT+1",
   resumeUrl: "/Azeem_Sanusi_resume.pdf",
   avatarUrl: "/my-head.png",
   social: {
-    github: "https://github.com/devazx0",
+    github: "https://github.com/azeem-py",
+    githubLabel: "github.com/azeem-py",
     linkedin: "https://linkedin.com/in/sanusi-azeem",
-    whatsapp: "https://wa.me/2349095021208",
+    linkedinLabel: "linkedin.com/in/sanusi-azeem",
+    whatsapp: "https://wa.me/2347033486488",
     email: "mailto:bljazeem@gmail.com"
   }
 };
@@ -332,7 +337,7 @@ const PROJECTS = [
     ],
     stack: ["NestJS", "React", "Prisma", "PostgreSQL", "Redis", "PWA"],
     demo: "https://logos.devazeem.cv/feed",
-    github: "https://github.com/devazx0",
+    github: "https://github.com/azeem-py",
     liveStatus: "OPEN_SOURCE"
   },
   {
@@ -376,7 +381,7 @@ const PROJECTS = [
     ],
     stack: ["NestJS", "React", "Vite", "Prisma", "PostgreSQL", "Turborepo", "Tailwind CSS", "PWA"],
     demo: "https://issuefloww.vercel.app/",
-    github: "https://github.com/devazx0",
+    github: "https://github.com/azeem-py",
     liveStatus: "LIVE_APP"
   }
 ];
@@ -1285,6 +1290,54 @@ const App = () => {
               {CONFIG.subRole} · {CONFIG.location}
             </motion.p>
 
+            {/* Direct contact strip */}
+            <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-5 text-[11px] sm:text-xs font-mono">
+              <a
+                href={`mailto:${CONFIG.email}`}
+                className="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Email"
+              >
+                <Mail size={12} className="shrink-0" />
+                <span>{CONFIG.email}</span>
+              </a>
+              <span className="text-zinc-300 dark:text-zinc-700" aria-hidden="true">•</span>
+              <a
+                href={`tel:${CONFIG.phoneRaw}`}
+                className="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="Call"
+              >
+                <Phone size={12} className="shrink-0" />
+                <span>{CONFIG.phone}</span>
+              </a>
+              <span className="text-zinc-300 dark:text-zinc-700" aria-hidden="true">•</span>
+              <a
+                href={CONFIG.social.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="GitHub"
+              >
+                <Github size={12} className="shrink-0" />
+                <span>{CONFIG.social.githubLabel}</span>
+              </a>
+              <span className="text-zinc-300 dark:text-zinc-700" aria-hidden="true">•</span>
+              <a
+                href={CONFIG.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
+                title="LinkedIn"
+              >
+                <Linkedin size={12} className="shrink-0" />
+                <span>{CONFIG.social.linkedinLabel}</span>
+              </a>
+              <span className="text-zinc-300 dark:text-zinc-700" aria-hidden="true">•</span>
+              <span className="inline-flex items-center gap-1.5 text-zinc-500 dark:text-zinc-500">
+                <MapPin size={12} className="shrink-0" />
+                <span>{CONFIG.location}</span>
+              </span>
+            </motion.div>
+
             {/* Metrics Grid — 3 glanceable proofs */}
             <motion.div variants={fadeInUp} className="grid grid-cols-2 gap-2 sm:gap-3 my-5">
               {METRIC_BADGES.map((b, i) => (
@@ -1502,7 +1555,7 @@ const App = () => {
                   <MessageCircle size={17} className="text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <div className="text-xs font-mono min-w-0">
                     <div className="text-zinc-400 text-[10px]">WHATSAPP_CHAT</div>
-                    <div className="text-zinc-800 dark:text-zinc-200 font-bold truncate">+234 909 502 1208</div>
+                    <div className="text-zinc-800 dark:text-zinc-200 font-bold truncate">{CONFIG.phone}</div>
                   </div>
                 </div>
                 <ArrowUpRight size={14} className="text-zinc-400 group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0 ml-2" />
@@ -1518,7 +1571,7 @@ const App = () => {
                   <Github size={17} className="text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <div className="text-xs font-mono min-w-0">
                     <div className="text-zinc-400 text-[10px]">GITHUB_SOURCE</div>
-                    <div className="text-zinc-800 dark:text-zinc-200 font-bold truncate">github.com/devazx0</div>
+                    <div className="text-zinc-800 dark:text-zinc-200 font-bold truncate">{CONFIG.social.githubLabel}</div>
                   </div>
                 </div>
                 <ArrowUpRight size={14} className="text-zinc-400 group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0 ml-2" />
@@ -1534,7 +1587,7 @@ const App = () => {
                   <Linkedin size={17} className="text-emerald-600 dark:text-emerald-400 shrink-0" />
                   <div className="text-xs font-mono min-w-0">
                     <div className="text-zinc-400 text-[10px]">LINKEDIN_CONNECT</div>
-                    <div className="text-zinc-800 dark:text-zinc-200 font-bold truncate">linkedin.com/in/sanusi-azeem</div>
+                    <div className="text-zinc-800 dark:text-zinc-200 font-bold truncate">{CONFIG.social.linkedinLabel}</div>
                   </div>
                 </div>
                 <ArrowUpRight size={14} className="text-zinc-400 group-hover:text-emerald-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0 ml-2" />
